@@ -1,4 +1,4 @@
-#include "MyForm.h" //linkujesz naglowek do forma
+#include "MyForm.h" //linkujesz naglowek do formy
 
 using namespace SnakeOne; //tu wpisujesz nazwe projektu
 
