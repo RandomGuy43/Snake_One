@@ -8,6 +8,6 @@ int main()
 
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew MyForm()); //podajesz nazwy forma
+	Application::Run(gcnew MyForm()); //podajesz nazwy formy
 	return 0;
 }
