@@ -1,4 +1,4 @@
-#include "MyForm.h" //linkujesz naglowek do formy
+#include "First_One.h" //linkujesz naglowek do formy
 
 using namespace SnakeOne; //tu wpisujesz nazwe projektu
 
@@ -8,6 +8,6 @@ int main()
 
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew MyForm()); //podajesz nazwy formy
+	Application::Run(gcnew First_One()); //podajesz nazwy formy
 	return 0;
 }

@@ -12,12 +12,12 @@ namespace SnakeOne {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Podsumowanie informacji o MyForm
+	/// Podsumowanie informacji o First_One
 	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
+	public ref class First_One : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void)
+		First_One(void)
 		{
 			InitializeComponent();
 			//
@@ -29,7 +29,7 @@ namespace SnakeOne {
 		/// <summary>
 		/// Wyczyœæ wszystkie u¿ywane zasoby.
 		/// </summary>
-		~MyForm()
+		~First_One()
 		{
 			if (components)
 			{
@@ -74,7 +74,7 @@ namespace SnakeOne {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(First_One::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -109,7 +109,7 @@ namespace SnakeOne {
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Przycisk";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button1->Click += gcnew System::EventHandler(this, &First_One::button1_Click);
 			// 
 			// button2
 			// 
@@ -119,7 +119,7 @@ namespace SnakeOne {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Przycisk2";
 			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			this->button2->Click += gcnew System::EventHandler(this, &First_One::button2_Click);
 			// 
 			// textBox1
 			// 
@@ -128,7 +128,7 @@ namespace SnakeOne {
 			this->textBox1->Size = System::Drawing::Size(78, 20);
 			this->textBox1->TabIndex = 2;
 			this->textBox1->Text = L"Super Program";
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &First_One::textBox1_TextChanged);
 			// 
 			// label1
 			// 
@@ -137,7 +137,7 @@ namespace SnakeOne {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(0, 13);
 			this->label1->TabIndex = 3;
-			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
+			this->label1->Click += gcnew System::EventHandler(this, &First_One::label1_Click);
 			// 
 			// button3
 			// 
@@ -147,7 +147,7 @@ namespace SnakeOne {
 			this->button3->TabIndex = 4;
 			this->button3->Text = L"Kopiuj";
 			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
+			this->button3->Click += gcnew System::EventHandler(this, &First_One::button3_Click);
 			// 
 			// label2
 			// 
@@ -166,7 +166,7 @@ namespace SnakeOne {
 			this->button4->TabIndex = 6;
 			this->button4->Text = L"+1";
 			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			this->button4->Click += gcnew System::EventHandler(this, &First_One::button4_Click);
 			// 
 			// textBox2
 			// 
@@ -174,7 +174,7 @@ namespace SnakeOne {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(62, 20);
 			this->textBox2->TabIndex = 7;
-			this->textBox2->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
+			this->textBox2->TextChanged += gcnew System::EventHandler(this, &First_One::textBox2_TextChanged);
 			// 
 			// textBox3
 			// 
@@ -227,7 +227,7 @@ namespace SnakeOne {
 			this->label3->Size = System::Drawing::Size(24, 13);
 			this->label3->TabIndex = 13;
 			this->label3->Text = L"x = ";
-			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
+			this->label3->Click += gcnew System::EventHandler(this, &First_One::label3_Click);
 			// 
 			// label4
 			// 
@@ -307,9 +307,9 @@ namespace SnakeOne {
 			this->label10->Size = System::Drawing::Size(40, 13);
 			this->label10->TabIndex = 22;
 			this->label10->Text = L"Licznik";
-			this->label10->Click += gcnew System::EventHandler(this, &MyForm::label10_Click);
+			this->label10->Click += gcnew System::EventHandler(this, &First_One::label10_Click);
 			// 
-			// MyForm
+			// First_One
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -337,9 +337,9 @@ namespace SnakeOne {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
-			this->Name = L"MyForm";
-			this->Text = L"MyForm";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->Name = L"First_One";
+			this->Text = L"First_One";
+			this->Load += gcnew System::EventHandler(this, &First_One::First_One_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -370,7 +370,7 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 	n++;
 	label2->Text = System::Convert::ToString(n);
 }
-private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e)
+private: System::Void First_One_Load(System::Object^  sender, System::EventArgs^  e)
 {}
 private: System::Void label10_Click(System::Object^  sender, System::EventArgs^  e)
 {}
