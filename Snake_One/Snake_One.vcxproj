@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Obraz.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -137,11 +138,16 @@
     <ClInclude Include="First_One.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Obraz.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="First_One.resx">
       <DependentUpon>First_One.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Snake_One.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
