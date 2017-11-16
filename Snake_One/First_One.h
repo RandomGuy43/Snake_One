@@ -75,13 +75,19 @@ namespace SnakeOne
 
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Label^  resLabel2;
+	private: System::Windows::Forms::TabControl^  tabControl1;
+	private: System::Windows::Forms::TabPage^  tabPage1;
+	private: System::Windows::Forms::TabPage^  tabPage2;
+	private: System::Windows::Forms::TabPage^  tabPage3;
+
+	private: System::ComponentModel::IContainer^  components;
 	protected:
 
 	private:
 		/// <summary>
 		/// Wymagana zmienna projektanta.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -114,22 +120,30 @@ namespace SnakeOne
 			this->picBox = (gcnew System::Windows::Forms::PictureBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->resLabel2 = (gcnew System::Windows::Forms::Label());
+			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBox))->BeginInit();
+			this->tabControl1->SuspendLayout();
+			this->tabPage1->SuspendLayout();
+			this->tabPage2->SuspendLayout();
+			this->tabPage3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(12, 12);
+			this->button1->Location = System::Drawing::Point(86, 45);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(57, 23);
+			this->button1->Size = System::Drawing::Size(73, 23);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Przycisk";
+			this->button1->Text = L"Przycisk1";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &First_One::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(75, 12);
+			this->button2->Location = System::Drawing::Point(165, 45);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(63, 23);
 			this->button2->TabIndex = 1;
@@ -139,7 +153,7 @@ namespace SnakeOne
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(12, 54);
+			this->textBox1->Location = System::Drawing::Point(86, 87);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(78, 20);
 			this->textBox1->TabIndex = 2;
@@ -149,7 +163,7 @@ namespace SnakeOne
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(110, 57);
+			this->label1->Location = System::Drawing::Point(184, 90);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(0, 13);
 			this->label1->TabIndex = 3;
@@ -157,7 +171,7 @@ namespace SnakeOne
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(12, 80);
+			this->button3->Location = System::Drawing::Point(86, 113);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 4;
@@ -168,7 +182,7 @@ namespace SnakeOne
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(12, 143);
+			this->label2->Location = System::Drawing::Point(108, 181);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(13, 13);
 			this->label2->TabIndex = 5;
@@ -176,9 +190,9 @@ namespace SnakeOne
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(35, 138);
+			this->button4->Location = System::Drawing::Point(134, 176);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(75, 23);
+			this->button4->Size = System::Drawing::Size(50, 23);
 			this->button4->TabIndex = 6;
 			this->button4->Text = L"+1";
 			this->button4->UseVisualStyleBackColor = true;
@@ -186,7 +200,7 @@ namespace SnakeOne
 			// 
 			// xTBox
 			// 
-			this->xTBox->Location = System::Drawing::Point(295, 28);
+			this->xTBox->Location = System::Drawing::Point(121, 82);
 			this->xTBox->Name = L"xTBox";
 			this->xTBox->Size = System::Drawing::Size(62, 20);
 			this->xTBox->TabIndex = 7;
@@ -194,14 +208,14 @@ namespace SnakeOne
 			// 
 			// yTBox
 			// 
-			this->yTBox->Location = System::Drawing::Point(295, 54);
+			this->yTBox->Location = System::Drawing::Point(121, 108);
 			this->yTBox->Name = L"yTBox";
 			this->yTBox->Size = System::Drawing::Size(62, 20);
 			this->yTBox->TabIndex = 8;
 			// 
 			// PlusButton
 			// 
-			this->PlusButton->Location = System::Drawing::Point(243, 80);
+			this->PlusButton->Location = System::Drawing::Point(69, 134);
 			this->PlusButton->Name = L"PlusButton";
 			this->PlusButton->Size = System::Drawing::Size(33, 23);
 			this->PlusButton->TabIndex = 9;
@@ -211,7 +225,7 @@ namespace SnakeOne
 			// 
 			// TimesButton
 			// 
-			this->TimesButton->Location = System::Drawing::Point(321, 80);
+			this->TimesButton->Location = System::Drawing::Point(147, 134);
 			this->TimesButton->Name = L"TimesButton";
 			this->TimesButton->Size = System::Drawing::Size(33, 23);
 			this->TimesButton->TabIndex = 10;
@@ -221,7 +235,7 @@ namespace SnakeOne
 			// 
 			// MinusButton
 			// 
-			this->MinusButton->Location = System::Drawing::Point(282, 80);
+			this->MinusButton->Location = System::Drawing::Point(108, 134);
 			this->MinusButton->Name = L"MinusButton";
 			this->MinusButton->Size = System::Drawing::Size(33, 23);
 			this->MinusButton->TabIndex = 11;
@@ -231,7 +245,7 @@ namespace SnakeOne
 			// 
 			// DivisionButton
 			// 
-			this->DivisionButton->Location = System::Drawing::Point(360, 80);
+			this->DivisionButton->Location = System::Drawing::Point(186, 134);
 			this->DivisionButton->Name = L"DivisionButton";
 			this->DivisionButton->Size = System::Drawing::Size(33, 23);
 			this->DivisionButton->TabIndex = 12;
@@ -242,7 +256,7 @@ namespace SnakeOne
 			// xLabel
 			// 
 			this->xLabel->AutoSize = true;
-			this->xLabel->Location = System::Drawing::Point(271, 32);
+			this->xLabel->Location = System::Drawing::Point(97, 86);
 			this->xLabel->Name = L"xLabel";
 			this->xLabel->Size = System::Drawing::Size(24, 13);
 			this->xLabel->TabIndex = 13;
@@ -252,7 +266,7 @@ namespace SnakeOne
 			// yLabel
 			// 
 			this->yLabel->AutoSize = true;
-			this->yLabel->Location = System::Drawing::Point(271, 57);
+			this->yLabel->Location = System::Drawing::Point(97, 111);
 			this->yLabel->Name = L"yLabel";
 			this->yLabel->Size = System::Drawing::Size(24, 13);
 			this->yLabel->TabIndex = 14;
@@ -261,7 +275,7 @@ namespace SnakeOne
 			// resLabel
 			// 
 			this->resLabel->AutoSize = true;
-			this->resLabel->Location = System::Drawing::Point(292, 117);
+			this->resLabel->Location = System::Drawing::Point(118, 171);
 			this->resLabel->Name = L"resLabel";
 			this->resLabel->Size = System::Drawing::Size(46, 13);
 			this->resLabel->TabIndex = 16;
@@ -270,7 +284,7 @@ namespace SnakeOne
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(300, 9);
+			this->label6->Location = System::Drawing::Point(126, 63);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(54, 13);
 			this->label6->TabIndex = 17;
@@ -279,16 +293,19 @@ namespace SnakeOne
 			// PicLabel
 			// 
 			this->PicLabel->AutoSize = true;
-			this->PicLabel->Location = System::Drawing::Point(525, 9);
+			this->PicLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+																static_cast<System::Byte>(238)));
+			this->PicLabel->ForeColor = System::Drawing::Color::Olive;
+			this->PicLabel->Location = System::Drawing::Point(512, 9);
 			this->PicLabel->Name = L"PicLabel";
-			this->PicLabel->Size = System::Drawing::Size(47, 13);
+			this->PicLabel->Size = System::Drawing::Size(60, 15);
 			this->PicLabel->TabIndex = 18;
 			this->PicLabel->Text = L"Obrazek";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(22, 202);
+			this->label8->Location = System::Drawing::Point(99, 73);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(101, 13);
 			this->label8->TabIndex = 19;
@@ -297,7 +314,7 @@ namespace SnakeOne
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(9, 226);
+			this->label9->Location = System::Drawing::Point(86, 97);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(130, 13);
 			this->label9->TabIndex = 20;
@@ -305,8 +322,9 @@ namespace SnakeOne
 			// 
 			// picBox
 			// 
+			this->picBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->picBox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picBox.Image")));
-			this->picBox->Location = System::Drawing::Point(427, 32);
+			this->picBox->Location = System::Drawing::Point(408, 31);
 			this->picBox->Name = L"picBox";
 			this->picBox->Size = System::Drawing::Size(252, 250);
 			this->picBox->TabIndex = 21;
@@ -316,7 +334,7 @@ namespace SnakeOne
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(45, 117);
+			this->label10->Location = System::Drawing::Point(119, 152);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(40, 13);
 			this->label10->TabIndex = 22;
@@ -329,44 +347,96 @@ namespace SnakeOne
 			this->resLabel2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 																 static_cast<System::Byte>(238)));
 			this->resLabel2->ForeColor = System::Drawing::Color::Maroon;
-			this->resLabel2->Location = System::Drawing::Point(335, 117);
+			this->resLabel2->Location = System::Drawing::Point(161, 171);
 			this->resLabel2->Name = L"resLabel2";
 			this->resLabel2->Size = System::Drawing::Size(14, 13);
 			this->resLabel2->TabIndex = 23;
 			this->resLabel2->Text = L"0";
 			// 
+			// tabControl1
+			// 
+			this->tabControl1->AccessibleName = L"";
+			this->tabControl1->Controls->Add(this->tabPage1);
+			this->tabControl1->Controls->Add(this->tabPage2);
+			this->tabControl1->Controls->Add(this->tabPage3);
+			this->tabControl1->Location = System::Drawing::Point(12, 10);
+			this->tabControl1->Name = L"tabControl1";
+			this->tabControl1->SelectedIndex = 0;
+			this->tabControl1->Size = System::Drawing::Size(326, 275);
+			this->tabControl1->TabIndex = 24;
+			// 
+			// tabPage1
+			// 
+			this->tabPage1->Controls->Add(this->button1);
+			this->tabPage1->Controls->Add(this->button2);
+			this->tabPage1->Controls->Add(this->label10);
+			this->tabPage1->Controls->Add(this->textBox1);
+			this->tabPage1->Controls->Add(this->label1);
+			this->tabPage1->Controls->Add(this->button3);
+			this->tabPage1->Controls->Add(this->label2);
+			this->tabPage1->Controls->Add(this->button4);
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(318, 249);
+			this->tabPage1->TabIndex = 0;
+			this->tabPage1->Text = L"Zbiórka";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// tabPage2
+			// 
+			this->tabPage2->Controls->Add(this->label6);
+			this->tabPage2->Controls->Add(this->resLabel2);
+			this->tabPage2->Controls->Add(this->xTBox);
+			this->tabPage2->Controls->Add(this->yTBox);
+			this->tabPage2->Controls->Add(this->PlusButton);
+			this->tabPage2->Controls->Add(this->TimesButton);
+			this->tabPage2->Controls->Add(this->MinusButton);
+			this->tabPage2->Controls->Add(this->DivisionButton);
+			this->tabPage2->Controls->Add(this->resLabel);
+			this->tabPage2->Controls->Add(this->xLabel);
+			this->tabPage2->Controls->Add(this->yLabel);
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Name = L"tabPage2";
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage2->Size = System::Drawing::Size(318, 249);
+			this->tabPage2->TabIndex = 1;
+			this->tabPage2->Text = L"Kalkulator";
+			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// tabPage3
+			// 
+			this->tabPage3->Controls->Add(this->label8);
+			this->tabPage3->Controls->Add(this->label9);
+			this->tabPage3->Location = System::Drawing::Point(4, 22);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage3->Size = System::Drawing::Size(318, 249);
+			this->tabPage3->TabIndex = 2;
+			this->tabPage3->Text = L"Zad.dom.";
+			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
 			// First_One
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::Control;
 			this->ClientSize = System::Drawing::Size(697, 297);
-			this->Controls->Add(this->resLabel2);
-			this->Controls->Add(this->label10);
+			this->Controls->Add(this->tabControl1);
 			this->Controls->Add(this->picBox);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->label8);
 			this->Controls->Add(this->PicLabel);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->resLabel);
-			this->Controls->Add(this->yLabel);
-			this->Controls->Add(this->xLabel);
-			this->Controls->Add(this->DivisionButton);
-			this->Controls->Add(this->MinusButton);
-			this->Controls->Add(this->TimesButton);
-			this->Controls->Add(this->PlusButton);
-			this->Controls->Add(this->yTBox);
-			this->Controls->Add(this->xTBox);
-			this->Controls->Add(this->button4);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
+			this->MaximizeBox = false;
 			this->Name = L"First_One";
 			this->Text = L"First_One";
 			this->Load += gcnew System::EventHandler(this, &First_One::First_One_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBox))->EndInit();
+			this->tabControl1->ResumeLayout(false);
+			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
+			this->tabPage2->ResumeLayout(false);
+			this->tabPage2->PerformLayout();
+			this->tabPage3->ResumeLayout(false);
+			this->tabPage3->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

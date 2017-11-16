@@ -125,7 +125,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Obraz.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -138,7 +137,6 @@
     <ClInclude Include="First_One.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Obraz.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
