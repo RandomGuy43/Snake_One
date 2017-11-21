@@ -12,6 +12,8 @@ namespace SnakeOne
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	Obraz2 picture2;
+
 	/// <summary>
 	/// Podsumowanie informacji o First_One
 	/// </summary>
@@ -71,7 +73,8 @@ namespace SnakeOne
 
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::Label^  label9;
-	private: System::Windows::Forms::PictureBox^  picBox;
+	private: System::Windows::Forms::PictureBox^  face;
+
 
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Label^  resLabel2;
@@ -79,6 +82,18 @@ namespace SnakeOne
 	private: System::Windows::Forms::TabPage^  tabPage1;
 	private: System::Windows::Forms::TabPage^  tabPage2;
 	private: System::Windows::Forms::TabPage^  tabPage3;
+	private: System::Windows::Forms::TabPage^  tabPage4;
+
+	private: System::Windows::Forms::Button^  Prawo;
+	private: System::Windows::Forms::Button^  Lewo;
+
+	private: System::Windows::Forms::Timer^  timer1;
+	private: System::Windows::Forms::Timer^  timer2;
+
+
+
+
+
 
 	private: System::ComponentModel::IContainer^  components;
 	protected:
@@ -96,6 +111,7 @@ namespace SnakeOne
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(First_One::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -117,14 +133,19 @@ namespace SnakeOne
 			this->PicLabel = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->picBox = (gcnew System::Windows::Forms::PictureBox());
+			this->face = (gcnew System::Windows::Forms::PictureBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->resLabel2 = (gcnew System::Windows::Forms::Label());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBox))->BeginInit();
+			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->Prawo = (gcnew System::Windows::Forms::Button());
+			this->Lewo = (gcnew System::Windows::Forms::Button());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->face))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
@@ -296,7 +317,7 @@ namespace SnakeOne
 			this->PicLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 																static_cast<System::Byte>(238)));
 			this->PicLabel->ForeColor = System::Drawing::Color::Olive;
-			this->PicLabel->Location = System::Drawing::Point(512, 9);
+			this->PicLabel->Location = System::Drawing::Point(437, 9);
 			this->PicLabel->Name = L"PicLabel";
 			this->PicLabel->Size = System::Drawing::Size(60, 15);
 			this->PicLabel->TabIndex = 18;
@@ -320,16 +341,16 @@ namespace SnakeOne
 			this->label9->TabIndex = 20;
 			this->label9->Text = L"Dodawanie wlasnych klas";
 			// 
-			// picBox
+			// face
 			// 
-			this->picBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picBox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picBox.Image")));
-			this->picBox->Location = System::Drawing::Point(408, 31);
-			this->picBox->Name = L"picBox";
-			this->picBox->Size = System::Drawing::Size(252, 250);
-			this->picBox->TabIndex = 21;
-			this->picBox->TabStop = false;
-			this->picBox->Click += gcnew System::EventHandler(this, &First_One::picBox_Click);
+			this->face->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->face->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"face.Image")));
+			this->face->Location = System::Drawing::Point(396, 32);
+			this->face->Name = L"face";
+			this->face->Size = System::Drawing::Size(153, 118);
+			this->face->TabIndex = 21;
+			this->face->TabStop = false;
+			this->face->Click += gcnew System::EventHandler(this, &First_One::picBox_Click);
 			// 
 			// label10
 			// 
@@ -359,6 +380,7 @@ namespace SnakeOne
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
+			this->tabControl1->Controls->Add(this->tabPage4);
 			this->tabControl1->Location = System::Drawing::Point(12, 10);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -416,20 +438,62 @@ namespace SnakeOne
 			this->tabPage3->Text = L"Zad.dom.";
 			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
+			// tabPage4
+			// 
+			this->tabPage4->Location = System::Drawing::Point(4, 22);
+			this->tabPage4->Name = L"tabPage4";
+			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage4->Size = System::Drawing::Size(318, 249);
+			this->tabPage4->TabIndex = 3;
+			this->tabPage4->Text = L"21.11";
+			this->tabPage4->UseVisualStyleBackColor = true;
+			// 
+			// Prawo
+			// 
+			this->Prawo->Location = System::Drawing::Point(477, 183);
+			this->Prawo->Name = L"Prawo";
+			this->Prawo->Size = System::Drawing::Size(75, 23);
+			this->Prawo->TabIndex = 26;
+			this->Prawo->Text = L"Prawo";
+			this->Prawo->UseVisualStyleBackColor = true;
+			this->Prawo->Click += gcnew System::EventHandler(this, &First_One::Prawo_Click);
+			// 
+			// Lewo
+			// 
+			this->Lewo->Location = System::Drawing::Point(396, 183);
+			this->Lewo->Name = L"Lewo";
+			this->Lewo->Size = System::Drawing::Size(75, 23);
+			this->Lewo->TabIndex = 27;
+			this->Lewo->Text = L"Lewo";
+			this->Lewo->UseVisualStyleBackColor = true;
+			this->Lewo->Click += gcnew System::EventHandler(this, &First_One::button5_Click);
+			// 
+			// timer1
+			// 
+			this->timer1->Enabled = true;
+			this->timer1->Interval = 200;
+			this->timer1->Tick += gcnew System::EventHandler(this, &First_One::timer1_Tick);
+			// 
+			// timer2
+			// 
+			this->timer2->Tick += gcnew System::EventHandler(this, &First_One::timer2_Tick);
+			// 
 			// First_One
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
-			this->ClientSize = System::Drawing::Size(697, 297);
+			this->ClientSize = System::Drawing::Size(618, 290);
+			this->Controls->Add(this->Lewo);
+			this->Controls->Add(this->Prawo);
 			this->Controls->Add(this->tabControl1);
-			this->Controls->Add(this->picBox);
+			this->Controls->Add(this->face);
 			this->Controls->Add(this->PicLabel);
 			this->MaximizeBox = false;
 			this->Name = L"First_One";
 			this->Text = L"First_One";
 			this->Load += gcnew System::EventHandler(this, &First_One::First_One_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBox))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->face))->EndInit();
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
@@ -465,8 +529,12 @@ namespace SnakeOne
 			n++;
 			label2->Text = System::Convert::ToString(n);
 		}
+		
+				 // plansza 
+		private: System::Void First_One_Load(System::Object^  sender, System::EventArgs^  e)
+		{
 
-		private: System::Void First_One_Load(System::Object^  sender, System::EventArgs^  e) {}
+		}
 		private: System::Void label10_Click(System::Object^  sender, System::EventArgs^  e) {}
 		private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {}
 		private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {}
@@ -512,6 +580,53 @@ namespace SnakeOne
 			b = System::Convert::ToDouble(yTBox->Text);
 			wynik = a / b;
 			resLabel2->Text = System::Convert::ToString(wynik);
+		}
+
+		private: System::Void Prawo_Click(System::Object^  sender, System::EventArgs^  e)
+		{
+			//int x = face->Location.X;
+			//int y = face->Location.Y;
+			//y -= 10;
+
+			//face->Location = System::Drawing::Point(x, y);
+			if (timer2->Enabled)
+				timer2->Enabled = false;
+			else
+				timer2->Enabled = true;
+		}
+				 // lewo
+		//private: system::void button5_click(system::object^  sender, system::eventargs^  e)
+		//{
+		//	int x = face->location.x;
+		//	int y = face->location.y;
+		//	x -= 10;
+
+		//	face->location = system::drawing::point(x, y);
+		//}
+				 // lewo
+		private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e)
+		{
+			//timer1->Enabled = false;
+			
+			if (timer1->Enabled)
+				timer1->Enabled = false;
+			else 
+				timer1->Enabled = true;
+
+		}
+		private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e)
+		{
+			int x = face->Location.X;
+			int y = face->Location.Y;
+			x -= 10;
+			face->Location = System::Drawing::Point(x, y);
+		}
+		private: System::Void timer2_Tick(System::Object^  sender, System::EventArgs^  e)
+		{
+			int x = face->Location.X;
+			int y = face->Location.Y;
+			x += 10;
+			face->Location = System::Drawing::Point(x, y);
 		}
 };
 }
