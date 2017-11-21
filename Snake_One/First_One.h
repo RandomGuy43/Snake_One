@@ -45,6 +45,8 @@ namespace SnakeOne
 	private: System::Windows::Forms::Button^  Lewo;
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::Timer^  timer2;
+	private: System::Windows::Forms::Button^  Gora;
+	private: System::Windows::Forms::Button^  Dol;
 	private: System::ComponentModel::IContainer^  components;
 
 	protected:
@@ -69,6 +71,8 @@ namespace SnakeOne
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->Lewo = (gcnew System::Windows::Forms::Button());
+			this->Gora = (gcnew System::Windows::Forms::Button());
+			this->Dol = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->face))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -76,7 +80,7 @@ namespace SnakeOne
 			// 
 			this->face->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->face->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"face.Image")));
-			this->face->Location = System::Drawing::Point(218, 12);
+			this->face->Location = System::Drawing::Point(229, 44);
 			this->face->Name = L"face";
 			this->face->Size = System::Drawing::Size(138, 134);
 			this->face->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -85,7 +89,7 @@ namespace SnakeOne
 			// 
 			// Prawo
 			// 
-			this->Prawo->Location = System::Drawing::Point(304, 182);
+			this->Prawo->Location = System::Drawing::Point(304, 218);
 			this->Prawo->Name = L"Prawo";
 			this->Prawo->Size = System::Drawing::Size(75, 23);
 			this->Prawo->TabIndex = 26;
@@ -105,7 +109,7 @@ namespace SnakeOne
 			// 
 			// Lewo
 			// 
-			this->Lewo->Location = System::Drawing::Point(218, 182);
+			this->Lewo->Location = System::Drawing::Point(218, 218);
 			this->Lewo->Name = L"Lewo";
 			this->Lewo->Size = System::Drawing::Size(75, 23);
 			this->Lewo->TabIndex = 27;
@@ -113,21 +117,45 @@ namespace SnakeOne
 			this->Lewo->UseVisualStyleBackColor = true;
 			this->Lewo->Click += gcnew System::EventHandler(this, &First_One::Lewo_Click);
 			// 
+			// Gora
+			// 
+			this->Gora->Location = System::Drawing::Point(218, 247);
+			this->Gora->Name = L"Gora";
+			this->Gora->Size = System::Drawing::Size(75, 23);
+			this->Gora->TabIndex = 28;
+			this->Gora->Text = L"Góra";
+			this->Gora->UseVisualStyleBackColor = true;
+			this->Gora->Click += gcnew System::EventHandler(this, &First_One::Gora_Click);
+			// 
+			// Dol
+			// 
+			this->Dol->Location = System::Drawing::Point(304, 247);
+			this->Dol->Name = L"Dol";
+			this->Dol->Size = System::Drawing::Size(75, 23);
+			this->Dol->TabIndex = 29;
+			this->Dol->Text = L"Dó³";
+			this->Dol->UseVisualStyleBackColor = true;
+			this->Dol->Click += gcnew System::EventHandler(this, &First_One::Dol_Click);
+			// 
 			// First_One
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
 			this->ClientSize = System::Drawing::Size(596, 299);
+			this->Controls->Add(this->Dol);
+			this->Controls->Add(this->Gora);
 			this->Controls->Add(this->Lewo);
 			this->Controls->Add(this->Prawo);
 			this->Controls->Add(this->face);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->Name = L"First_One";
-			this->Text = L"First_One";
+			this->Text = L"Snake";
 			this->Load += gcnew System::EventHandler(this, &First_One::First_One_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->face))->EndInit();
 			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 		
@@ -163,6 +191,20 @@ namespace SnakeOne
 			int x = face->Location.X;
 			int y = face->Location.Y;
 			x += 10;
+			face->Location = System::Drawing::Point(x, y);
+		}
+		private: System::Void Gora_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			int x = face->Location.X;
+			int y = face->Location.Y;
+			y -= 10;
+			face->Location = System::Drawing::Point(x, y);
+		}
+		private: System::Void Dol_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			int x = face->Location.X;
+			int y = face->Location.Y;
+			y += 10;
 			face->Location = System::Drawing::Point(x, y);
 		}
 };
