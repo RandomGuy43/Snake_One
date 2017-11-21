@@ -6,9 +6,8 @@
 using namespace SnakeOne; //tu wpisujesz nazwe projektu
 
 [STAThreadAttribute]
-int main()
+int main(void)
 {
-
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::Run(gcnew First_One()); //podajesz nazwy formy

@@ -128,7 +128,6 @@ namespace SnakeOne
 			this->Load += gcnew System::EventHandler(this, &First_One::First_One_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->face))->EndInit();
 			this->ResumeLayout(false);
-
 		}
 #pragma endregion
 		
