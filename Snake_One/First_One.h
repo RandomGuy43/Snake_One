@@ -41,14 +41,10 @@ namespace SnakeOne
 		}
 
 	private: System::Windows::Forms::PictureBox^  face;
-
 	private: System::Windows::Forms::Button^  Prawo;
-
-
+	private: System::Windows::Forms::Button^  Lewo;
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::Timer^  timer2;
-	private: System::Windows::Forms::Button^  Lewo;
-
 	private: System::ComponentModel::IContainer^  components;
 
 	protected:
@@ -143,18 +139,13 @@ namespace SnakeOne
 
 		}
 
-		private: System::Void picBox_Click(System::Object^  sender, System::EventArgs^  e) {}
-
 		private: System::Void Lewo_Click(System::Object^  sender, System::EventArgs^  e) 
 		{
-
 			if (timer1->Enabled)
 				timer1->Enabled = false;
 			else
 				timer1->Enabled = true;
-
 		}
-
 		private: System::Void Prawo_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			if (timer2->Enabled)
@@ -162,7 +153,6 @@ namespace SnakeOne
 			else
 				timer2->Enabled = true;
 		}
-
 		private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e)
 		{
 			int x = face->Location.X;
@@ -177,6 +167,5 @@ namespace SnakeOne
 			x += 10;
 			face->Location = System::Drawing::Point(x, y);
 		}
-
 };
 }
