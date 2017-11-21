@@ -82,7 +82,6 @@ namespace SnakeOne
 			this->face->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->face->TabIndex = 21;
 			this->face->TabStop = false;
-			this->face->Click += gcnew System::EventHandler(this, &First_One::picBox_Click);
 			// 
 			// Prawo
 			// 
