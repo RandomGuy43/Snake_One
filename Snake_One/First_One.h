@@ -4,7 +4,6 @@
 
 namespace SnakeOne 
 {
-
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -12,7 +11,8 @@ namespace SnakeOne
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	Obraz2 picture2;
+	// klasa Obraz2 obiekt picture2
+	//Obraz2 picture2;
 
 	/// <summary>
 	/// Podsumowanie informacji o First_One
@@ -82,7 +82,7 @@ namespace SnakeOne
 	private: System::Windows::Forms::TabPage^  tabPage1;
 	private: System::Windows::Forms::TabPage^  tabPage2;
 	private: System::Windows::Forms::TabPage^  tabPage3;
-	private: System::Windows::Forms::TabPage^  tabPage4;
+
 
 	private: System::Windows::Forms::Button^  Prawo;
 	private: System::Windows::Forms::Button^  Lewo;
@@ -140,7 +140,6 @@ namespace SnakeOne
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
 			this->Prawo = (gcnew System::Windows::Forms::Button());
 			this->Lewo = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
@@ -315,7 +314,7 @@ namespace SnakeOne
 			// 
 			this->PicLabel->AutoSize = true;
 			this->PicLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-																static_cast<System::Byte>(238)));
+				static_cast<System::Byte>(238)));
 			this->PicLabel->ForeColor = System::Drawing::Color::Olive;
 			this->PicLabel->Location = System::Drawing::Point(437, 9);
 			this->PicLabel->Name = L"PicLabel";
@@ -366,7 +365,7 @@ namespace SnakeOne
 			// 
 			this->resLabel2->AutoSize = true;
 			this->resLabel2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-																 static_cast<System::Byte>(238)));
+				static_cast<System::Byte>(238)));
 			this->resLabel2->ForeColor = System::Drawing::Color::Maroon;
 			this->resLabel2->Location = System::Drawing::Point(161, 171);
 			this->resLabel2->Name = L"resLabel2";
@@ -380,7 +379,6 @@ namespace SnakeOne
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
-			this->tabControl1->Controls->Add(this->tabPage4);
 			this->tabControl1->Location = System::Drawing::Point(12, 10);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -437,16 +435,6 @@ namespace SnakeOne
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Zad.dom.";
 			this->tabPage3->UseVisualStyleBackColor = true;
-			// 
-			// tabPage4
-			// 
-			this->tabPage4->Location = System::Drawing::Point(4, 22);
-			this->tabPage4->Name = L"tabPage4";
-			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage4->Size = System::Drawing::Size(318, 249);
-			this->tabPage4->TabIndex = 3;
-			this->tabPage4->Text = L"21.11";
-			this->tabPage4->UseVisualStyleBackColor = true;
 			// 
 			// Prawo
 			// 

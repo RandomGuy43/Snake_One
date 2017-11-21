@@ -1,4 +1,6 @@
-#include "Obraz2.h"
+// linkowanie klasy do formy
+//#include "Obraz2.h"
+
 #include "First_One.h" //linkujesz naglowek do formy
 
 using namespace SnakeOne; //tu wpisujesz nazwe projektu
