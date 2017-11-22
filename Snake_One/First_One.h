@@ -278,6 +278,7 @@ namespace SnakeOne
 
 #pragma endregion Zawartosc formy
 
+#pragma region Movement Keys
 		// sterowanie za pomoca klawiszy
 		void First_One_KeyDown(System::Object^, System::Windows::Forms::KeyEventArgs^ e)
 		{
@@ -330,7 +331,8 @@ namespace SnakeOne
 				Timer_prawo->Enabled = false;
 			}
 		}
-		
+#pragma endregion Sterowanie strzalkami		
+
 				 // plansza jako pole do gry
 		private: System::Void First_One_Load(System::Object^  sender, System::EventArgs^  e)
 		{
