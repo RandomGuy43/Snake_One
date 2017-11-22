@@ -11,5 +11,6 @@ int main(void)
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::Run(gcnew First_One()); //podajesz nazwy formy
+
 	return 0;
 }

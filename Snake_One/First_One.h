@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <iostream>
+#include <conio.h>
 
 namespace SnakeOne 
 {
@@ -17,6 +18,8 @@ namespace SnakeOne
 	/// <summary>
 	/// Podsumowanie informacji o First_One
 	/// </summary>
+
+#pragma region Form
 	public ref class First_One : public System::Windows::Forms::Form
 	{
 	public:
@@ -26,6 +29,8 @@ namespace SnakeOne
 			//
 			//TODO: W tym miejscu dodaj kod konstruktora
 			//
+
+
 		}
 
 	protected:
@@ -73,7 +78,7 @@ namespace SnakeOne
 		/// <summary>
 		/// Wymagana zmienna projektanta.
 		/// </summary>
-
+#pragma endregion Klasa formy
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -112,6 +117,7 @@ namespace SnakeOne
 			// 
 			// Prawo
 			// 
+			this->Prawo->Enabled = false;
 			this->Prawo->Location = System::Drawing::Point(320, 228);
 			this->Prawo->Name = L"Prawo";
 			this->Prawo->Size = System::Drawing::Size(23, 23);
@@ -132,6 +138,7 @@ namespace SnakeOne
 			// 
 			// Lewo
 			// 
+			this->Lewo->Enabled = false;
 			this->Lewo->Location = System::Drawing::Point(262, 228);
 			this->Lewo->Name = L"Lewo";
 			this->Lewo->Size = System::Drawing::Size(23, 23);
@@ -142,6 +149,7 @@ namespace SnakeOne
 			// 
 			// Gora
 			// 
+			this->Gora->Enabled = false;
 			this->Gora->Location = System::Drawing::Point(291, 200);
 			this->Gora->Name = L"Gora";
 			this->Gora->Size = System::Drawing::Size(23, 23);
@@ -152,6 +160,7 @@ namespace SnakeOne
 			// 
 			// Dol
 			// 
+			this->Dol->Enabled = false;
 			this->Dol->Location = System::Drawing::Point(291, 256);
 			this->Dol->Name = L"Dol";
 			this->Dol->Size = System::Drawing::Size(23, 23);
@@ -291,6 +300,7 @@ namespace SnakeOne
 			this->Stop->AutoSize = true;
 			this->Stop->BackColor = System::Drawing::Color::Red;
 			this->Stop->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->Stop->Enabled = false;
 			this->Stop->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 															static_cast<System::Byte>(238)));
 			this->Stop->ForeColor = System::Drawing::Color::Transparent;
@@ -339,8 +349,64 @@ namespace SnakeOne
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
+			// do sterowania klawiszami
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &First_One::First_One_KeyDown);
 		}
-#pragma endregion
+
+#pragma endregion Zawartosc formy
+
+		// sterowanie za pomoca klawiszy
+		void First_One_KeyDown(System::Object^, System::Windows::Forms::KeyEventArgs^ e)
+		{
+			int x = Head->Location.X;
+			int y = Head->Location.Y;
+
+			//if (e->KeyCode == Keys::Right) x += 10;
+			//else if (e->KeyCode == Keys::Left) x -= 10;
+			//else if (e->KeyCode == Keys::Up) y -= 10;
+			//else if (e->KeyCode == Keys::Down) y += 10;
+			//
+			//Head->Location = System::Drawing::Point(x,y);
+
+			if (e->KeyCode == Keys::Right)
+			{
+				Timer_lewo->Enabled = false;
+				Timer_gora->Enabled = false;
+				Timer_dol->Enabled = false;
+				Timer_prawo->Enabled = true;
+			}
+			else if (e->KeyCode == Keys::Left)
+			{
+				Timer_lewo->Enabled = true;
+				Timer_gora->Enabled = false;
+				Timer_dol->Enabled = false;
+				Timer_prawo->Enabled = false;
+			}
+			else if (e->KeyCode == Keys::Up)
+			{
+				Timer_lewo->Enabled = false;
+				Timer_gora->Enabled = true;
+				Timer_dol->Enabled = false;
+				Timer_prawo->Enabled = false;
+			}
+			else if (e->KeyCode == Keys::Down)
+			{
+				Timer_lewo->Enabled = false;
+				Timer_gora->Enabled = false;
+				Timer_dol->Enabled = true;
+				Timer_prawo->Enabled = false;
+			}
+
+			else if (e->KeyCode == Keys::Space)
+			{
+				Timer_lewo->Enabled = false;
+				Timer_gora->Enabled = false;
+				Timer_dol->Enabled = false;
+				Timer_prawo->Enabled = false;
+			}
+
+			
+		}
 		
 				 // plansza jako pole do gry
 		private: System::Void First_One_Load(System::Object^  sender, System::EventArgs^  e)
@@ -348,6 +414,7 @@ namespace SnakeOne
 
 		}
 
+#pragma region Buttons
 		private: System::Void Lewo_Click(System::Object^  sender, System::EventArgs^  e) 
 		{
 			//if (Timer_lewo->Enabled)
@@ -388,6 +455,16 @@ namespace SnakeOne
 				Timer_prawo->Enabled = false;
 				Timer_lewo->Enabled = false;
 		}
+		private: System::Void Stop_Click(System::Object^  sender, System::EventArgs^  e)
+		{
+			Timer_dol->Enabled = false;
+			Timer_gora->Enabled = false;
+			Timer_prawo->Enabled = false;
+			Timer_lewo->Enabled = false;
+		}
+#pragma endregion Przyciski ruchu
+
+#pragma region Timery
 		private: System::Void Timer_lewo_Tick(System::Object^  sender, System::EventArgs^  e)
 		{
 			int x = Head->Location.X;
@@ -416,12 +493,6 @@ namespace SnakeOne
 			y += 10;
 			Head->Location = System::Drawing::Point(x, y);
 		}
-		private: System::Void Stop_Click(System::Object^  sender, System::EventArgs^  e) 
-		{
-			Timer_dol->Enabled = false;
-			Timer_gora->Enabled = false;
-			Timer_prawo->Enabled = false;
-			Timer_lewo->Enabled = false;
-		}
+#pragma endregion Timery kierunkowe
 };
 }
