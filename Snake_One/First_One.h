@@ -278,9 +278,20 @@ namespace SnakeOne
 
 #pragma endregion Zawartosc formy
 
+		//
+		// TODO: Losowanie położenia jabłka, gdy zostanie ono dotknięte odpowiednią stroną głowy węża
+		//
+		// TODO: Akcja przy dotknięciu głową węża o krawędź ściany (czy potrzebny osobny png ze ścianą?)
+		//
+		// TODO: Akcja przy dotknięciu głową węża o któryś z segmentów
+		//
+
 #pragma region Movement Keys
-		// sterowanie za pomoca klawiszy
-		void First_One_KeyDown(System::Object^, System::Windows::Forms::KeyEventArgs^ e)
+					//
+					// sterowanie za pomoca klawiszy
+					// TODO: Sterowanie wszystkimi segmentami węża (połączenie ich w jedną całość)	
+					//
+		private : void First_One_KeyDown(System::Object^, System::Windows::Forms::KeyEventArgs^ e)
 		{
 			int x = Head->Location.X;
 			int y = Head->Location.Y;
@@ -322,7 +333,7 @@ namespace SnakeOne
 				Timer_dol->Enabled = true;
 				Timer_prawo->Enabled = false;
 			}
-
+						// pauzowanie, docelowo zabronione - możliwe jedynie wyjście z poziomu?
 			else if (e->KeyCode == Keys::Space)
 			{
 				Timer_lewo->Enabled = false;
@@ -336,7 +347,9 @@ namespace SnakeOne
 				 // plansza jako pole do gry
 		private: System::Void First_One_Load(System::Object^  sender, System::EventArgs^  e)
 		{
-
+			// TODO: Na start wyświetlanie ekranu startowego, potem przechodzenie na pierwszy poziom.
+			// Po każdym poziomie informacja o przejściu na nowy i odliczanie do startu poziomu.
+			// Docelowo trzy poziomy z różną szybkością poruszania się węża i dodatkowymi przeszkodami?
 		}
 
 #pragma region Timery
