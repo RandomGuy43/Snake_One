@@ -12,6 +12,7 @@ namespace SnakeOne
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+
 	// klasa Obraz2 obiekt picture2
 	//Obraz2 picture2;
 
