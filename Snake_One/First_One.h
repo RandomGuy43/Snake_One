@@ -47,19 +47,21 @@ namespace SnakeOne {
 	private: System::Windows::Forms::Timer^  Timer_left;
 	private: System::Windows::Forms::Timer^  Timer_right;
 	private: System::Windows::Forms::PictureBox^  Background;
-	private: System::Windows::Forms::Label^  label1;
+
 	private: System::Windows::Forms::PictureBox^  Head;
 	private: System::Windows::Forms::PictureBox^  Segment1;
 	private: System::Windows::Forms::PictureBox^  Tail;
-	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::PictureBox^  Apple;
-	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::Label^  Score;
-	private: System::Windows::Forms::Label^  Result;
+
+
+
+
+
 	private: System::Windows::Forms::Timer^  Timer_up;
 	private: System::Windows::Forms::Timer^  Timer_down;
-	private: System::Windows::Forms::StatusBar^  StatusBar;
-	private: System::Windows::Forms::StatusBarPanel^  StatusBarPanel1;
+	private: System::Windows::Forms::PictureBox^  StatusBarPic;
+	private: System::Windows::Forms::PictureBox^  Apple;
+
+
 
 
 	private: System::ComponentModel::IContainer^  components;
@@ -84,25 +86,19 @@ namespace SnakeOne {
 			this->Timer_left = (gcnew System::Windows::Forms::Timer(this->components));
 			this->Timer_right = (gcnew System::Windows::Forms::Timer(this->components));
 			this->Background = (gcnew System::Windows::Forms::PictureBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Head = (gcnew System::Windows::Forms::PictureBox());
 			this->Segment1 = (gcnew System::Windows::Forms::PictureBox());
 			this->Tail = (gcnew System::Windows::Forms::PictureBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->Apple = (gcnew System::Windows::Forms::PictureBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->Score = (gcnew System::Windows::Forms::Label());
-			this->Result = (gcnew System::Windows::Forms::Label());
 			this->Timer_up = (gcnew System::Windows::Forms::Timer(this->components));
 			this->Timer_down = (gcnew System::Windows::Forms::Timer(this->components));
-			this->StatusBar = (gcnew System::Windows::Forms::StatusBar());
-			this->StatusBarPanel1 = (gcnew System::Windows::Forms::StatusBarPanel());
+			this->StatusBarPic = (gcnew System::Windows::Forms::PictureBox());
+			this->Apple = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Head))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Segment1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Tail))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->StatusBarPic))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Apple))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->StatusBarPanel1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// Timer_left
@@ -122,31 +118,19 @@ namespace SnakeOne {
 			this->Background->Location = System::Drawing::Point(0, 0);
 			this->Background->Margin = System::Windows::Forms::Padding(0);
 			this->Background->Name = L"Background";
-			this->Background->Size = System::Drawing::Size(600, 300);
+			this->Background->Size = System::Drawing::Size(750, 500);
 			this->Background->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->Background->TabIndex = 21;
 			this->Background->TabStop = false;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-															  static_cast<System::Byte>(238)));
-			this->label1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label1.Image")));
-			this->label1->Location = System::Drawing::Point(465, 15);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(110, 13);
-			this->label1->TabIndex = 30;
-			this->label1->Text = L"Wymiary: 600x300";
 			// 
 			// Head
 			// 
 			this->Head->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Head.BackgroundImage")));
 			this->Head->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Head.Image")));
-			this->Head->Location = System::Drawing::Point(281, 150);
+			this->Head->Location = System::Drawing::Point(347, 150);
 			this->Head->Margin = System::Windows::Forms::Padding(0);
 			this->Head->Name = L"Head";
-			this->Head->Size = System::Drawing::Size(17, 17);
+			this->Head->Size = System::Drawing::Size(30, 30);
 			this->Head->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->Head->TabIndex = 31;
 			this->Head->TabStop = false;
@@ -155,10 +139,10 @@ namespace SnakeOne {
 			// 
 			this->Segment1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Segment1.BackgroundImage")));
 			this->Segment1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Segment1.Image")));
-			this->Segment1->Location = System::Drawing::Point(298, 150);
+			this->Segment1->Location = System::Drawing::Point(377, 150);
 			this->Segment1->Margin = System::Windows::Forms::Padding(0);
 			this->Segment1->Name = L"Segment1";
-			this->Segment1->Size = System::Drawing::Size(17, 17);
+			this->Segment1->Size = System::Drawing::Size(39, 30);
 			this->Segment1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->Segment1->TabIndex = 32;
 			this->Segment1->TabStop = false;
@@ -167,78 +151,13 @@ namespace SnakeOne {
 			// 
 			this->Tail->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Tail.BackgroundImage")));
 			this->Tail->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Tail.Image")));
-			this->Tail->Location = System::Drawing::Point(315, 150);
+			this->Tail->Location = System::Drawing::Point(416, 150);
 			this->Tail->Margin = System::Windows::Forms::Padding(0);
 			this->Tail->Name = L"Tail";
-			this->Tail->Size = System::Drawing::Size(17, 17);
+			this->Tail->Size = System::Drawing::Size(34, 30);
 			this->Tail->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->Tail->TabIndex = 33;
 			this->Tail->TabStop = false;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-															  static_cast<System::Byte>(238)));
-			this->label2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label2.Image")));
-			this->label2->Location = System::Drawing::Point(465, 32);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(104, 13);
-			this->label2->TabIndex = 34;
-			this->label2->Text = L"Segmenty: 20x20";
-			// 
-			// Apple
-			// 
-			this->Apple->BackColor = System::Drawing::Color::Transparent;
-			this->Apple->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Apple.BackgroundImage")));
-			this->Apple->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Apple.Image")));
-			this->Apple->Location = System::Drawing::Point(188, 62);
-			this->Apple->Margin = System::Windows::Forms::Padding(0);
-			this->Apple->Name = L"Apple";
-			this->Apple->Size = System::Drawing::Size(20, 20);
-			this->Apple->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->Apple->TabIndex = 35;
-			this->Apple->TabStop = false;
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-															  static_cast<System::Byte>(238)));
-			this->label3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label3.Image")));
-			this->label3->Location = System::Drawing::Point(478, 48);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(83, 13);
-			this->label3->TabIndex = 36;
-			this->label3->Text = L"Japco: 20x20";
-			// 
-			// Score
-			// 
-			this->Score->AutoSize = true;
-			this->Score->BackColor = System::Drawing::Color::Transparent;
-			this->Score->Font = (gcnew System::Drawing::Font(L"Segoe Print", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-															 static_cast<System::Byte>(238)));
-			this->Score->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Score.Image")));
-			this->Score->Location = System::Drawing::Point(15, 13);
-			this->Score->Margin = System::Windows::Forms::Padding(0);
-			this->Score->Name = L"Score";
-			this->Score->Size = System::Drawing::Size(50, 23);
-			this->Score->TabIndex = 37;
-			this->Score->Text = L"Score:";
-			// 
-			// Result
-			// 
-			this->Result->AutoSize = true;
-			this->Result->BackColor = System::Drawing::Color::Transparent;
-			this->Result->Font = (gcnew System::Drawing::Font(L"Segoe Print", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-															  static_cast<System::Byte>(238)));
-			this->Result->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Result.Image")));
-			this->Result->Location = System::Drawing::Point(60, 13);
-			this->Result->Margin = System::Windows::Forms::Padding(0);
-			this->Result->Name = L"Result";
-			this->Result->Size = System::Drawing::Size(49, 23);
-			this->Result->TabIndex = 38;
-			this->Result->Text = L"Result";
 			// 
 			// Timer_up
 			// 
@@ -250,36 +169,39 @@ namespace SnakeOne {
 			this->Timer_down->Interval = 200;
 			this->Timer_down->Tick += gcnew System::EventHandler(this, &First_One::Timer_down_Tick);
 			// 
-			// StatusBar
+			// StatusBarPic
 			// 
-			this->StatusBar->Location = System::Drawing::Point(0, 301);
-			this->StatusBar->Name = L"StatusBar";
-			this->StatusBar->Panels->AddRange(gcnew cli::array< System::Windows::Forms::StatusBarPanel^  >(1) { this->StatusBarPanel1 });
-			this->StatusBar->ShowPanels = true;
-			this->StatusBar->Size = System::Drawing::Size(600, 22);
-			this->StatusBar->TabIndex = 39;
+			this->StatusBarPic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"StatusBarPic.Image")));
+			this->StatusBarPic->Location = System::Drawing::Point(0, 500);
+			this->StatusBarPic->Name = L"StatusBarPic";
+			this->StatusBarPic->Size = System::Drawing::Size(750, 50);
+			this->StatusBarPic->TabIndex = 39;
+			this->StatusBarPic->TabStop = false;
 			// 
-			// StatusBarPanel1
+			// Apple
 			// 
-			this->StatusBarPanel1->Name = L"StatusBarPanel1";
-			this->StatusBarPanel1->Text = L"00";
+			this->Apple->BackColor = System::Drawing::Color::Transparent;
+			this->Apple->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Apple.BackgroundImage")));
+			this->Apple->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Apple.Image")));
+			this->Apple->Location = System::Drawing::Point(233, 208);
+			this->Apple->Margin = System::Windows::Forms::Padding(0);
+			this->Apple->Name = L"Apple";
+			this->Apple->Size = System::Drawing::Size(30, 35);
+			this->Apple->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+			this->Apple->TabIndex = 35;
+			this->Apple->TabStop = false;
 			// 
 			// First_One
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
-			this->ClientSize = System::Drawing::Size(600, 323);
-			this->Controls->Add(this->StatusBar);
-			this->Controls->Add(this->Result);
-			this->Controls->Add(this->Score);
-			this->Controls->Add(this->label3);
+			this->ClientSize = System::Drawing::Size(750, 551);
+			this->Controls->Add(this->StatusBarPic);
 			this->Controls->Add(this->Apple);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->Tail);
 			this->Controls->Add(this->Segment1);
 			this->Controls->Add(this->Head);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->Background);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
@@ -291,8 +213,8 @@ namespace SnakeOne {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Head))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Segment1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Tail))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->StatusBarPic))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Apple))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->StatusBarPanel1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -302,11 +224,11 @@ namespace SnakeOne {
 
 #pragma region Movement Keys
 
-		// nie działa
-	private: void First_One_Head_Position(System::Object^  sender, System::EventArgs^  e)
-	{
-		StatusBar->Panels[0]->Text = System::Convert::ToString(Head->Location.X);
-	}
+	//	// nie działa
+	//private: void First_One_Head_Position(System::Object^  sender, System::EventArgs^  e)
+	//{
+	//	StatusBar->Panels[0]->Text = System::Convert::ToString(Head->Location.X);
+	//}
 
 	private: void First_One_KeyDown(System::Object^, System::Windows::Forms::KeyEventArgs^ e)
 	{
