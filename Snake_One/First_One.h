@@ -2,15 +2,17 @@
 
 #include <iostream>
 #include <conio.h>
+#include <string.h>
 
-namespace SnakeOne 
-{
+namespace SnakeOne {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
+	using namespace std;
 
 	// klasa Obraz2 obiekt picture2
 	//Obraz2 picture2;
@@ -42,21 +44,24 @@ namespace SnakeOne
 				delete components;
 			}
 		}
-
-	private: System::Windows::Forms::Timer^  Timer_lewo;
-	private: System::Windows::Forms::Timer^  Timer_prawo;
+	private: System::Windows::Forms::Timer^  Timer_left;
+	private: System::Windows::Forms::Timer^  Timer_right;
 	private: System::Windows::Forms::PictureBox^  Background;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::PictureBox^  Head;
 	private: System::Windows::Forms::PictureBox^  Segment1;
-	private: System::Windows::Forms::PictureBox^  Segment2;
+	private: System::Windows::Forms::PictureBox^  Tail;
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::PictureBox^  Apple;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  Score;
 	private: System::Windows::Forms::Label^  Result;
-	private: System::Windows::Forms::Timer^  Timer_gora;
-	private: System::Windows::Forms::Timer^  Timer_dol;
+	private: System::Windows::Forms::Timer^  Timer_up;
+	private: System::Windows::Forms::Timer^  Timer_down;
+	private: System::Windows::Forms::StatusBar^  StatusBar;
+	private: System::Windows::Forms::StatusBarPanel^  StatusBarPanel1;
+
+
 	private: System::ComponentModel::IContainer^  components;
 
 	protected:
@@ -76,36 +81,39 @@ namespace SnakeOne
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(First_One::typeid));
-			this->Timer_lewo = (gcnew System::Windows::Forms::Timer(this->components));
-			this->Timer_prawo = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Timer_left = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Timer_right = (gcnew System::Windows::Forms::Timer(this->components));
 			this->Background = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Head = (gcnew System::Windows::Forms::PictureBox());
 			this->Segment1 = (gcnew System::Windows::Forms::PictureBox());
-			this->Segment2 = (gcnew System::Windows::Forms::PictureBox());
+			this->Tail = (gcnew System::Windows::Forms::PictureBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->Apple = (gcnew System::Windows::Forms::PictureBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->Score = (gcnew System::Windows::Forms::Label());
 			this->Result = (gcnew System::Windows::Forms::Label());
-			this->Timer_gora = (gcnew System::Windows::Forms::Timer(this->components));
-			this->Timer_dol = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Timer_up = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Timer_down = (gcnew System::Windows::Forms::Timer(this->components));
+			this->StatusBar = (gcnew System::Windows::Forms::StatusBar());
+			this->StatusBarPanel1 = (gcnew System::Windows::Forms::StatusBarPanel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Head))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Segment1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Segment2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Tail))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Apple))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->StatusBarPanel1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// Timer_lewo
+			// Timer_left
 			// 
-			this->Timer_lewo->Interval = 200;
-			this->Timer_lewo->Tick += gcnew System::EventHandler(this, &First_One::Timer_lewo_Tick);
+			this->Timer_left->Interval = 200;
+			this->Timer_left->Tick += gcnew System::EventHandler(this, &First_One::Timer_left_Tick);
 			// 
-			// Timer_prawo
+			// Timer_right
 			// 
-			this->Timer_prawo->Interval = 200;
-			this->Timer_prawo->Tick += gcnew System::EventHandler(this, &First_One::Timer_prawo_Tick);
+			this->Timer_right->Interval = 200;
+			this->Timer_right->Tick += gcnew System::EventHandler(this, &First_One::Timer_right_Tick);
 			// 
 			// Background
 			// 
@@ -155,17 +163,17 @@ namespace SnakeOne
 			this->Segment1->TabIndex = 32;
 			this->Segment1->TabStop = false;
 			// 
-			// Segment2
+			// Tail
 			// 
-			this->Segment2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Segment2.BackgroundImage")));
-			this->Segment2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Segment2.Image")));
-			this->Segment2->Location = System::Drawing::Point(315, 150);
-			this->Segment2->Margin = System::Windows::Forms::Padding(0);
-			this->Segment2->Name = L"Segment2";
-			this->Segment2->Size = System::Drawing::Size(17, 17);
-			this->Segment2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
-			this->Segment2->TabIndex = 33;
-			this->Segment2->TabStop = false;
+			this->Tail->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Tail.BackgroundImage")));
+			this->Tail->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Tail.Image")));
+			this->Tail->Location = System::Drawing::Point(315, 150);
+			this->Tail->Margin = System::Windows::Forms::Padding(0);
+			this->Tail->Name = L"Tail";
+			this->Tail->Size = System::Drawing::Size(17, 17);
+			this->Tail->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+			this->Tail->TabIndex = 33;
+			this->Tail->TabStop = false;
 			// 
 			// label2
 			// 
@@ -232,28 +240,43 @@ namespace SnakeOne
 			this->Result->TabIndex = 38;
 			this->Result->Text = L"Result";
 			// 
-			// Timer_gora
+			// Timer_up
 			// 
-			this->Timer_gora->Interval = 200;
-			this->Timer_gora->Tick += gcnew System::EventHandler(this, &First_One::Timer_gora_Tick);
+			this->Timer_up->Interval = 200;
+			this->Timer_up->Tick += gcnew System::EventHandler(this, &First_One::Timer_up_Tick);
 			// 
-			// Timer_dol
+			// Timer_down
 			// 
-			this->Timer_dol->Interval = 200;
-			this->Timer_dol->Tick += gcnew System::EventHandler(this, &First_One::Timer_dol_Tick);
+			this->Timer_down->Interval = 200;
+			this->Timer_down->Tick += gcnew System::EventHandler(this, &First_One::Timer_down_Tick);
+			// 
+			// StatusBar
+			// 
+			this->StatusBar->Location = System::Drawing::Point(0, 301);
+			this->StatusBar->Name = L"StatusBar";
+			this->StatusBar->Panels->AddRange(gcnew cli::array< System::Windows::Forms::StatusBarPanel^  >(1) { this->StatusBarPanel1 });
+			this->StatusBar->ShowPanels = true;
+			this->StatusBar->Size = System::Drawing::Size(600, 22);
+			this->StatusBar->TabIndex = 39;
+			// 
+			// StatusBarPanel1
+			// 
+			this->StatusBarPanel1->Name = L"StatusBarPanel1";
+			this->StatusBarPanel1->Text = L"00";
 			// 
 			// First_One
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
-			this->ClientSize = System::Drawing::Size(600, 299);
+			this->ClientSize = System::Drawing::Size(600, 323);
+			this->Controls->Add(this->StatusBar);
 			this->Controls->Add(this->Result);
 			this->Controls->Add(this->Score);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->Apple);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->Segment2);
+			this->Controls->Add(this->Tail);
 			this->Controls->Add(this->Segment1);
 			this->Controls->Add(this->Head);
 			this->Controls->Add(this->label1);
@@ -261,126 +284,120 @@ namespace SnakeOne
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->Name = L"First_One";
-			this->Text = L"Snake";
+			this->Text = L"SnakeOne";
 			this->Load += gcnew System::EventHandler(this, &First_One::First_One_Load);
-
-			// do sterowania klawiszami
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &First_One::First_One_KeyDown);
-
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Head))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Segment1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Segment2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Tail))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Apple))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->StatusBarPanel1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 
 #pragma endregion Zawartosc formy
 
-		//
-		// TODO: Losowanie położenia jabłka, gdy zostanie ono dotknięte odpowiednią stroną głowy węża
-		//
-		// TODO: Akcja przy dotknięciu głową węża o krawędź ściany (czy potrzebny osobny png ze ścianą?)
-		//
-		// TODO: Akcja przy dotknięciu głową węża o któryś z segmentów
-		//
-
 #pragma region Movement Keys
-					//
-					// sterowanie za pomoca klawiszy
-					// TODO: Sterowanie wszystkimi segmentami węża (połączenie ich w jedną całość)	
-					//
-		private : void First_One_KeyDown(System::Object^, System::Windows::Forms::KeyEventArgs^ e)
+
+		// nie działa
+	private: void First_One_Head_Position(System::Object^  sender, System::EventArgs^  e)
+	{
+		StatusBar->Panels[0]->Text = System::Convert::ToString(Head->Location.X);
+	}
+
+	private: void First_One_KeyDown(System::Object^, System::Windows::Forms::KeyEventArgs^ e)
+	{
+		int x = Head->Location.X;
+		int y = Head->Location.Y;
+
+		// ruch manualny
+
+//if (e->KeyCode == Keys::Right) x += 10;
+//else if (e->KeyCode == Keys::Left) x -= 10;
+//else if (e->KeyCode == Keys::Up) y -= 10;
+//else if (e->KeyCode == Keys::Down) y += 10;
+//
+//Head->Location = System::Drawing::Point(x,y);
+
+		if (e->KeyCode==Keys::Right)
 		{
-			int x = Head->Location.X;
-			int y = Head->Location.Y;
-
-						// ruch manualny
-
-			//if (e->KeyCode == Keys::Right) x += 10;
-			//else if (e->KeyCode == Keys::Left) x -= 10;
-			//else if (e->KeyCode == Keys::Up) y -= 10;
-			//else if (e->KeyCode == Keys::Down) y += 10;
-			//
-			//Head->Location = System::Drawing::Point(x,y);
-
-			if (e->KeyCode == Keys::Right)
-			{
-				Timer_lewo->Enabled = false;
-				Timer_gora->Enabled = false;
-				Timer_dol->Enabled = false;
-				Timer_prawo->Enabled = true;
-			}
-			else if (e->KeyCode == Keys::Left)
-			{
-				Timer_lewo->Enabled = true;
-				Timer_gora->Enabled = false;
-				Timer_dol->Enabled = false;
-				Timer_prawo->Enabled = false;
-			}
-			else if (e->KeyCode == Keys::Up)
-			{
-				Timer_lewo->Enabled = false;
-				Timer_gora->Enabled = true;
-				Timer_dol->Enabled = false;
-				Timer_prawo->Enabled = false;
-			}
-			else if (e->KeyCode == Keys::Down)
-			{
-				Timer_lewo->Enabled = false;
-				Timer_gora->Enabled = false;
-				Timer_dol->Enabled = true;
-				Timer_prawo->Enabled = false;
-			}
-						// pauzowanie, docelowo zabronione - możliwe jedynie wyjście z poziomu?
-			else if (e->KeyCode == Keys::Space)
-			{
-				Timer_lewo->Enabled = false;
-				Timer_gora->Enabled = false;
-				Timer_dol->Enabled = false;
-				Timer_prawo->Enabled = false;
-			}
+			Timer_left->Enabled = false;
+			Timer_up->Enabled = false;
+			Timer_down->Enabled = false;
+			Timer_right->Enabled = true;
 		}
+		else if (e->KeyCode==Keys::Left)
+		{
+			Timer_left->Enabled = true;
+			Timer_up->Enabled = false;
+			Timer_down->Enabled = false;
+			Timer_right->Enabled = false;
+		}
+		else if (e->KeyCode==Keys::Up)
+		{
+			Timer_left->Enabled = false;
+			Timer_up->Enabled = true;
+			Timer_down->Enabled = false;
+			Timer_right->Enabled = false;
+		}
+		else if (e->KeyCode==Keys::Down)
+		{
+			Timer_left->Enabled = false;
+			Timer_up->Enabled = false;
+			Timer_down->Enabled = true;
+			Timer_right->Enabled = false;
+		}
+		// pauzowanie, docelowo zabronione - możliwe jedynie wyjście z poziomu?
+		else if (e->KeyCode==Keys::Space)
+		{
+			Timer_left->Enabled = false;
+			Timer_up->Enabled = false;
+			Timer_down->Enabled = false;
+			Timer_right->Enabled = false;
+		}
+	}
 #pragma endregion Sterowanie strzalkami		
 
-				 // plansza jako pole do gry
-		private: System::Void First_One_Load(System::Object^  sender, System::EventArgs^  e)
-		{
-			// TODO: Na start wyświetlanie ekranu startowego, potem przechodzenie na pierwszy poziom.
-			// Po każdym poziomie informacja o przejściu na nowy i odliczanie do startu poziomu.
-			// Docelowo trzy poziomy z różną szybkością poruszania się węża i dodatkowymi przeszkodami?
-		}
+			 // plansza jako pole do gry
+	private: System::Void First_One_Load(System::Object^  sender, System::EventArgs^  e)
+	{
+		// TODO: Na start wyświetlanie ekranu startowego, potem przechodzenie na pierwszy poziom.
+		// Po każdym poziomie informacja o przejściu na nowy i odliczanie do startu poziomu.
+		// Docelowo trzy poziomy z różną szybkością poruszania się węża i dodatkowymi przeszkodami?
+	}
 
 #pragma region Timery
-		private: System::Void Timer_lewo_Tick(System::Object^  sender, System::EventArgs^  e)
-		{
-			int x = Head->Location.X;
-			int y = Head->Location.Y;
-			x -= 10;
-			Head->Location = System::Drawing::Point(x, y);
-		}
-		private: System::Void Timer_prawo_Tick(System::Object^  sender, System::EventArgs^  e)
-		{
-			int x = Head->Location.X;
-			int y = Head->Location.Y;
-			x += 10;
-			Head->Location = System::Drawing::Point(x, y);
-		}
-		private: System::Void Timer_gora_Tick(System::Object^  sender, System::EventArgs^  e) 
-		{
-			int x = Head->Location.X;
-			int y = Head->Location.Y;
-			y -= 10;
-			Head->Location = System::Drawing::Point(x, y);
-		}
-		private: System::Void Timer_dol_Tick(System::Object^  sender, System::EventArgs^  e) 
-		{
-			int x = Head->Location.X;
-			int y = Head->Location.Y;
-			y += 10;
-			Head->Location = System::Drawing::Point(x, y);
-		}
+	private: System::Void Timer_left_Tick(System::Object^  sender, System::EventArgs^  e)
+	{
+		int x = Head->Location.X;
+		int y = Head->Location.Y;
+		x -= 10;
+		Head->Location = System::Drawing::Point(x, y);
+	}
+	private: System::Void Timer_right_Tick(System::Object^  sender, System::EventArgs^  e)
+	{
+		int x = Head->Location.X;
+		int y = Head->Location.Y;
+		x += 10;
+		Head->Location = System::Drawing::Point(x, y);
+	}
+	private: System::Void Timer_up_Tick(System::Object^  sender, System::EventArgs^  e)
+	{
+		int x = Head->Location.X;
+		int y = Head->Location.Y;
+		y -= 10;
+		Head->Location = System::Drawing::Point(x, y);
+	}
+	private: System::Void Timer_down_Tick(System::Object^  sender, System::EventArgs^  e)
+	{
+		int x = Head->Location.X;
+		int y = Head->Location.Y;
+		y += 10;
+		Head->Location = System::Drawing::Point(x, y);
+	}
 #pragma endregion Timery kierunkowe
 };
 }

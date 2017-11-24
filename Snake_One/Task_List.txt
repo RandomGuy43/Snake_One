@@ -1,0 +1,43 @@
+0. Podzielenie projektu na osobne klasy do ka¿dego elementu typu Apple, Body, Counter...
+
+0.0.1. Nazewnictwo kolejnych wersji kodu i commitów.
+
+0.0.2. Deklaracja zmiennych jak najbli¿ej u¿ycia.
+
+0.1. Ekran startowy: PLAY, EXIT, CREDITS.	<--	do konstruktora?
+
+0.2. Trzy poziomy: 
+		1. naj³atwiejszy bez udziwnieñ
+		2. szybszy ruch wê¿a i  jedna przeszkoda w postaci œciany w kszta³cie litery U
+		3. jeszcze szybszy ruch wê¿a i dwie przeszkody, jedna œciana + spirala (+ pewne wystapienie jab³ka w niej)
+
+0.3. Zmiana rozmiaru planszy i elementów. Pasek informacji i liczniki na dole pod plansz¹, 
+	 ikony klawiszy sterowania.	     MINIMALISTIC NICE LOOKING UI?
+
+1. Losowanie po³o¿enia jab³ka po dotkniêciu przez g³owê wê¿a.
+		1. Ile jab³ek na poziom?
+		2. Którym bokiem
+
+2. Uderzenie wê¿a o œcianê, o przeszkodê i jeden z segmentów.	
+
+3. Dodawanie nowych segmentów wê¿a na przedostatniej pozycji przed segmentem Tail
+   lub na ostatniej pozycji bez wydzielania Tail.
+
+4. Sterowanie wszystkimi segmentami wê¿a.
+
+5. DŸwiêki:
+		1. W menu
+		2. Podczas gry
+		3. Akcja uderzenia w œcianê
+		4. Akcja zjedzenia jab³ka
+		5. Akcja przejœcia na kolejny poziom
+		6. Akcja alarmu na ostatnie 10 sekund odliczania do po³kniêcia jab³ka, co sekundê dŸwiêk
+
+6. Ulepszenie grafiki (into fotoszopy)
+
+7. Liczniki:
+		1. licznik jab³ek
+		2. licznik czasu do po³kniêcia nastêpnego ja³bka (przy ost. 10 sekundach zmiana koloru czcionki na czerwony)
+		3. licznik punktów (wymyœlna formu³a w zale¿noœci od wykonanych ruchów i czasu gry)
+
+8. 
