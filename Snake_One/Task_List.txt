@@ -40,4 +40,10 @@
 		2. licznik czasu do po³kniêcia nastêpnego ja³bka (przy ost. 10 sekundach zmiana koloru czcionki na czerwony)
 		3. licznik punktów (wymyœlna formu³a w zale¿noœci od wykonanych ruchów i czasu gry)
 
-8. 
+8. Podzia³ na klasy:
+	1. Movement.cpp = Poruszanie siê + jab³ka + nowe segmenty  // Movement.h = deklaracje funkcji i zmiennych
+	2. Score = dolny pasek z informacjami
+	3. Snake_build = obracanie g³owy wêza i ruch w danym kierunku
+	4. Game = menu + start + game over
+	5. Food = zliczanie punktow za zjedzenie
+	6. Buttons = sterowanie myszka w menu i wyglad menu + wychodzenie
