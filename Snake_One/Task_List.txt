@@ -1,3 +1,8 @@
+Ka¿da napisana przez kogoœ czêœæ kodu niech bêdzie oznaczona inicja³ami. Wystarczy cos takiego: 
+
+	while(x>10)
+		return x		// P.K.
+
 0. Podzielenie projektu na osobne klasy do ka¿dego elementu typu Apple, Body, Counter...
 
 0.0.1. Nazewnictwo kolejnych wersji kodu i commitów.
