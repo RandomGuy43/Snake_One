@@ -4,7 +4,8 @@
 #include <conio.h>
 #include <string.h>
 
-namespace SnakeOne {
+namespace SnakeOne 
+{
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -217,7 +218,6 @@ namespace SnakeOne {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Apple))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 
 #pragma endregion Zawartosc formy
