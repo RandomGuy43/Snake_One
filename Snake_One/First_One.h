@@ -3,6 +3,7 @@
 #include <iostream>
 #include <conio.h>
 #include <string.h>
+#include "snake.h"
 
 namespace SnakeOne 
 {
@@ -17,6 +18,9 @@ namespace SnakeOne
 
 	// klasa Obraz2 obiekt picture2
 	//Obraz2 picture2;
+
+	snake new_one;
+
 
 	/// <summary>
 	/// Podsumowanie informacji o First_One
@@ -118,10 +122,10 @@ namespace SnakeOne
 			// 
 			this->Head->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Head.BackgroundImage")));
 			this->Head->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Head.Image")));
-			this->Head->Location = System::Drawing::Point(347, 150);
+			this->Head->Location = System::Drawing::Point(400, 200);
 			this->Head->Margin = System::Windows::Forms::Padding(0);
 			this->Head->Name = L"Head";
-			this->Head->Size = System::Drawing::Size(30, 30);
+			this->Head->Size = System::Drawing::Size(25, 25);
 			this->Head->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->Head->TabIndex = 31;
 			this->Head->TabStop = false;
@@ -130,10 +134,10 @@ namespace SnakeOne
 			// 
 			this->Segment1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Segment1.BackgroundImage")));
 			this->Segment1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Segment1.Image")));
-			this->Segment1->Location = System::Drawing::Point(377, 150);
+			this->Segment1->Location = System::Drawing::Point(425, 200);
 			this->Segment1->Margin = System::Windows::Forms::Padding(0);
 			this->Segment1->Name = L"Segment1";
-			this->Segment1->Size = System::Drawing::Size(39, 30);
+			this->Segment1->Size = System::Drawing::Size(25, 25);
 			this->Segment1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->Segment1->TabIndex = 32;
 			this->Segment1->TabStop = false;
@@ -142,10 +146,10 @@ namespace SnakeOne
 			// 
 			this->Tail->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Tail.BackgroundImage")));
 			this->Tail->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Tail.Image")));
-			this->Tail->Location = System::Drawing::Point(416, 150);
+			this->Tail->Location = System::Drawing::Point(450, 200);
 			this->Tail->Margin = System::Windows::Forms::Padding(0);
 			this->Tail->Name = L"Tail";
-			this->Tail->Size = System::Drawing::Size(34, 30);
+			this->Tail->Size = System::Drawing::Size(25, 25);
 			this->Tail->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->Tail->TabIndex = 33;
 			this->Tail->TabStop = false;
@@ -174,10 +178,10 @@ namespace SnakeOne
 			this->Apple->BackColor = System::Drawing::Color::Transparent;
 			this->Apple->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Apple.BackgroundImage")));
 			this->Apple->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Apple.Image")));
-			this->Apple->Location = System::Drawing::Point(233, 208);
+			this->Apple->Location = System::Drawing::Point(250, 150);
 			this->Apple->Margin = System::Windows::Forms::Padding(0);
 			this->Apple->Name = L"Apple";
-			this->Apple->Size = System::Drawing::Size(30, 35);
+			this->Apple->Size = System::Drawing::Size(25, 25);
 			this->Apple->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->Apple->TabIndex = 35;
 			this->Apple->TabStop = false;
@@ -208,6 +212,7 @@ namespace SnakeOne
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Apple))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 
 #pragma endregion Zawartosc formy
@@ -277,28 +282,28 @@ namespace SnakeOne
 	{
 		int x = Head->Location.X;
 		int y = Head->Location.Y;
-		x -= 10;
+		x -= 25;
 		Head->Location = System::Drawing::Point(x, y);
 	}
 	private: System::Void Timer_right_Tick(System::Object^  sender, System::EventArgs^  e)
 	{
 		int x = Head->Location.X;
 		int y = Head->Location.Y;
-		x += 10;
+		x += 25;
 		Head->Location = System::Drawing::Point(x, y);
 	}
 	private: System::Void Timer_up_Tick(System::Object^  sender, System::EventArgs^  e)
 	{
 		int x = Head->Location.X;
 		int y = Head->Location.Y;
-		y -= 10;
+		y -= 25;
 		Head->Location = System::Drawing::Point(x, y);
 	}
 	private: System::Void Timer_down_Tick(System::Object^  sender, System::EventArgs^  e)
 	{
 		int x = Head->Location.X;
 		int y = Head->Location.Y;
-		y += 10;
+		y += 25;
 		Head->Location = System::Drawing::Point(x, y);
 	}
 #pragma endregion Timery kierunkowe
