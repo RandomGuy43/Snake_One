@@ -51,16 +51,13 @@ namespace SnakeOne
 	private: System::Windows::Forms::Timer^  Timer_left;
 	private: System::Windows::Forms::Timer^  Timer_right;
 	private: System::Windows::Forms::PictureBox^  Background;
-
 	private: System::Windows::Forms::PictureBox^  Head;
 	private: System::Windows::Forms::PictureBox^  Segment1;
 	private: System::Windows::Forms::PictureBox^  Tail;
-
 	private: System::Windows::Forms::Timer^  Timer_up;
 	private: System::Windows::Forms::Timer^  Timer_down;
 	private: System::Windows::Forms::PictureBox^  StatusBarPic;
 	private: System::Windows::Forms::PictureBox^  Apple;
-
 	private: System::ComponentModel::IContainer^  components;
 
 	protected:
@@ -119,7 +116,6 @@ namespace SnakeOne
 			this->Background->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->Background->TabIndex = 21;
 			this->Background->TabStop = false;
-			this->Background->Click += gcnew System::EventHandler(this, &First_One::Background_Click);
 			// 
 			// Head
 			// 
