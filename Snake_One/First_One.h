@@ -48,23 +48,13 @@ namespace SnakeOne
 	private: System::Windows::Forms::Timer^  Timer_left;
 	private: System::Windows::Forms::Timer^  Timer_right;
 	private: System::Windows::Forms::PictureBox^  Background;
-
 	private: System::Windows::Forms::PictureBox^  Head;
 	private: System::Windows::Forms::PictureBox^  Segment1;
 	private: System::Windows::Forms::PictureBox^  Tail;
-
-
-
-
-
 	private: System::Windows::Forms::Timer^  Timer_up;
 	private: System::Windows::Forms::Timer^  Timer_down;
 	private: System::Windows::Forms::PictureBox^  StatusBarPic;
 	private: System::Windows::Forms::PictureBox^  Apple;
-
-
-
-
 	private: System::ComponentModel::IContainer^  components;
 
 	protected:
@@ -235,15 +225,6 @@ namespace SnakeOne
 		int x = Head->Location.X;
 		int y = Head->Location.Y;
 
-		// ruch manualny
-
-//if (e->KeyCode == Keys::Right) x += 10;
-//else if (e->KeyCode == Keys::Left) x -= 10;
-//else if (e->KeyCode == Keys::Up) y -= 10;
-//else if (e->KeyCode == Keys::Down) y += 10;
-//
-//Head->Location = System::Drawing::Point(x,y);
-
 		if (e->KeyCode==Keys::Right)
 		{
 			Timer_left->Enabled = false;
@@ -272,7 +253,7 @@ namespace SnakeOne
 			Timer_down->Enabled = true;
 			Timer_right->Enabled = false;
 		}
-		// pauzowanie, docelowo zabronione - możliwe jedynie wyjście z poziomu?
+		// pauzowanie
 		else if (e->KeyCode==Keys::Space)
 		{
 			Timer_left->Enabled = false;
