@@ -14,7 +14,6 @@ public:
 	void eat();
 	void move();
 	void die();
-	//void waz();
 
 	waz();
 

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <conio.h>
 #include <string.h>
-//#include "waz.h"
 
 namespace SnakeOne 
 {
@@ -15,7 +14,6 @@ namespace SnakeOne
 	using namespace System::Drawing;
 
 	using namespace std;
-
 
 	waz w;
 	// klasa Obraz2 obiekt picture2
@@ -58,17 +56,10 @@ namespace SnakeOne
 	private: System::Windows::Forms::PictureBox^  Segment1;
 	private: System::Windows::Forms::PictureBox^  Tail;
 
-
-
-
-
 	private: System::Windows::Forms::Timer^  Timer_up;
 	private: System::Windows::Forms::Timer^  Timer_down;
 	private: System::Windows::Forms::PictureBox^  StatusBarPic;
 	private: System::Windows::Forms::PictureBox^  Apple;
-
-
-
 
 	private: System::ComponentModel::IContainer^  components;
 
@@ -244,15 +235,6 @@ namespace SnakeOne
 		int x = Head->Location.X;
 		int y = Head->Location.Y;
 
-		// ruch manualny
-
-//if (e->KeyCode == Keys::Right) x += 10;
-//else if (e->KeyCode == Keys::Left) x -= 10;
-//else if (e->KeyCode == Keys::Up) y -= 10;
-//else if (e->KeyCode == Keys::Down) y += 10;
-//
-//Head->Location = System::Drawing::Point(x,y);
-
 		if (e->KeyCode==Keys::Right)
 		{
 			Timer_left->Enabled = false;
@@ -281,7 +263,7 @@ namespace SnakeOne
 			Timer_down->Enabled = true;
 			Timer_right->Enabled = false;
 		}
-		// pauzowanie, docelowo zabronione - możliwe jedynie wyjście z poziomu?
+		// pauzowanie,
 		else if (e->KeyCode==Keys::Space)
 		{
 			Timer_left->Enabled = false;
@@ -330,7 +312,6 @@ namespace SnakeOne
 		Head->Location = System::Drawing::Point(x, y);
 	}
 #pragma endregion Timery kierunkowe
-private: System::Void Background_Click(System::Object^  sender, System::EventArgs^  e) {
-}
+
 };
 }

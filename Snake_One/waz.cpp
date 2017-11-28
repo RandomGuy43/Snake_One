@@ -1,7 +1,5 @@
 #include "waz.h"
 
-
-
 waz::waz()
 {
 	segment* seg1, *tail;
