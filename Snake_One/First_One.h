@@ -3,6 +3,7 @@
 #include <iostream>
 #include <conio.h>
 #include <string.h>
+//#include "waz.h"
 
 namespace SnakeOne 
 {
@@ -15,8 +16,12 @@ namespace SnakeOne
 
 	using namespace std;
 
+
+	waz w;
 	// klasa Obraz2 obiekt picture2
 	//Obraz2 picture2;
+
+	
 
 	/// <summary>
 	/// Podsumowanie informacji o First_One
@@ -116,19 +121,20 @@ namespace SnakeOne
 			// 
 			this->Background->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->Background->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Background.Image")));
-			this->Background->Location = System::Drawing::Point(0, 0);
+			this->Background->Location = System::Drawing::Point(-1, 0);
 			this->Background->Margin = System::Windows::Forms::Padding(0);
 			this->Background->Name = L"Background";
-			this->Background->Size = System::Drawing::Size(750, 500);
+			this->Background->Size = System::Drawing::Size(999, 615);
 			this->Background->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->Background->TabIndex = 21;
 			this->Background->TabStop = false;
+			this->Background->Click += gcnew System::EventHandler(this, &First_One::Background_Click);
 			// 
 			// Head
 			// 
 			this->Head->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Head.BackgroundImage")));
 			this->Head->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Head.Image")));
-			this->Head->Location = System::Drawing::Point(347, 150);
+			this->Head->Location = System::Drawing::Point(463, 185);
 			this->Head->Margin = System::Windows::Forms::Padding(0);
 			this->Head->Name = L"Head";
 			this->Head->Size = System::Drawing::Size(30, 30);
@@ -140,7 +146,7 @@ namespace SnakeOne
 			// 
 			this->Segment1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Segment1.BackgroundImage")));
 			this->Segment1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Segment1.Image")));
-			this->Segment1->Location = System::Drawing::Point(377, 150);
+			this->Segment1->Location = System::Drawing::Point(503, 185);
 			this->Segment1->Margin = System::Windows::Forms::Padding(0);
 			this->Segment1->Name = L"Segment1";
 			this->Segment1->Size = System::Drawing::Size(39, 30);
@@ -152,7 +158,7 @@ namespace SnakeOne
 			// 
 			this->Tail->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Tail.BackgroundImage")));
 			this->Tail->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Tail.Image")));
-			this->Tail->Location = System::Drawing::Point(416, 150);
+			this->Tail->Location = System::Drawing::Point(555, 185);
 			this->Tail->Margin = System::Windows::Forms::Padding(0);
 			this->Tail->Name = L"Tail";
 			this->Tail->Size = System::Drawing::Size(34, 30);
@@ -173,9 +179,10 @@ namespace SnakeOne
 			// StatusBarPic
 			// 
 			this->StatusBarPic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"StatusBarPic.Image")));
-			this->StatusBarPic->Location = System::Drawing::Point(0, 500);
+			this->StatusBarPic->Location = System::Drawing::Point(0, 615);
+			this->StatusBarPic->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->StatusBarPic->Name = L"StatusBarPic";
-			this->StatusBarPic->Size = System::Drawing::Size(750, 50);
+			this->StatusBarPic->Size = System::Drawing::Size(1000, 62);
 			this->StatusBarPic->TabIndex = 39;
 			this->StatusBarPic->TabStop = false;
 			// 
@@ -184,7 +191,7 @@ namespace SnakeOne
 			this->Apple->BackColor = System::Drawing::Color::Transparent;
 			this->Apple->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Apple.BackgroundImage")));
 			this->Apple->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Apple.Image")));
-			this->Apple->Location = System::Drawing::Point(233, 208);
+			this->Apple->Location = System::Drawing::Point(311, 256);
 			this->Apple->Margin = System::Windows::Forms::Padding(0);
 			this->Apple->Name = L"Apple";
 			this->Apple->Size = System::Drawing::Size(30, 35);
@@ -194,10 +201,10 @@ namespace SnakeOne
 			// 
 			// First_One
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
-			this->ClientSize = System::Drawing::Size(750, 551);
+			this->ClientSize = System::Drawing::Size(1000, 678);
 			this->Controls->Add(this->StatusBarPic);
 			this->Controls->Add(this->Apple);
 			this->Controls->Add(this->Tail);
@@ -205,6 +212,7 @@ namespace SnakeOne
 			this->Controls->Add(this->Head);
 			this->Controls->Add(this->Background);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->MaximizeBox = false;
 			this->Name = L"First_One";
 			this->Text = L"SnakeOne";
@@ -322,5 +330,7 @@ namespace SnakeOne
 		Head->Location = System::Drawing::Point(x, y);
 	}
 #pragma endregion Timery kierunkowe
+private: System::Void Background_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

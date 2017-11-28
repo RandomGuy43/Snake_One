@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="waz.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -138,6 +139,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="waz.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="First_One.resx">
